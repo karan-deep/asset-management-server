@@ -15,6 +15,9 @@ import javax.persistence.*;
 //defining table name as Users
 @Table(name = "USERS")
 public class User {
+    //defining id as column name and primary key
+    @Id
+    @GeneratedValue(strategy =GenerationType.AUTO)
     @Column(name = "ID")
     private int id;
 
