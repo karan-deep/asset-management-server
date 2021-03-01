@@ -27,6 +27,7 @@ public class UserController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    // POST endpoint - to authenticate user and sending token in the response
     @PostMapping("/api/authenticate")
     public ResponseEntity authenticateLogin(@RequestBody User user) {
         try {
@@ -42,6 +43,7 @@ public class UserController {
         return ResponseEntity.ok(new TokenResponse(token));
     }
 
+    // POST endpoint - to add/register a user and sending error message with 400 if user already exist
     @PostMapping("/api/register")
     private ResponseEntity addAsset(@RequestBody User user) {
         if (userService.loadUserByUsername(user.getUsername()) != null) {
