@@ -1,9 +1,16 @@
 package com.project.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Calendar;
 
+//Generating non-parameterized, getter and setter using lombok
+@Getter
+@Setter
+@NoArgsConstructor
 public class Asset {
-
     private int id;
     private int assetTypeId;
     private String name;
@@ -11,4 +18,11 @@ public class Asset {
     private double price;
     private Calendar purchaseDate;
 
+    public Asset(int assetTypeId, String name, String description, double price, Calendar purchaseDate) {
+        this.assetTypeId = assetTypeId;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.purchaseDate = purchaseDate;
+    }
 }
