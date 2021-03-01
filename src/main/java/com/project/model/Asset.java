@@ -16,11 +16,27 @@ import java.util.Calendar;
 //defining table name as Assets
 @Table(name = "ASSETS")
 public class Asset {
+    @Column(name = "ID")
     private int id;
+
+    //defining name as column name
+    @Column(name = "ASSETTYPEID")
     private int assetTypeId;
+
+    //defining name as column name
+    @Column(name = "NAME")
     private String name;
+
+    //defining description as column name
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    //defining price as column name
+    @Column(name = "PRICE")
     private double price;
+
+    //defining price as column name
+    @Column(name = "PURCHASEDATE")
     private Calendar purchaseDate;
 
     public Asset(int assetTypeId, String name, String description, double price, Calendar purchaseDate) {
