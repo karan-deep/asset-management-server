@@ -4,12 +4,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
 //Generating non-parameterized, getter and setter using lombok
 @Getter
 @Setter
 @NoArgsConstructor
+//marking class as an Entity
+@Entity
 public class Asset {
     private int id;
     private int assetTypeId;
