@@ -1,8 +1,11 @@
 package com.project.controller;
 
+import com.project.model.Asset;
 import com.project.service.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 // Enabling cross-origin resource sharing
 @CrossOrigin
@@ -18,4 +21,8 @@ public class AssetController {
         return assetService.getAllAssets();
     }
 
+    @GetMapping("/api/assets/{id}")
+    private Asset getAssetById(@PathVariable("id") int id) {
+        return assetService.getAssetById(id);
+    }
 }
