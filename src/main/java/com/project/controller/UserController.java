@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import com.project.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 // Enabling cross-origin resource sharing
@@ -8,5 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
 }
