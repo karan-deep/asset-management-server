@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 //marking class as an Entity
 @Entity
+//defining table name as Users
+@Table(name = "USERS")
 public class User {
     private int id;
     private String username;
