@@ -12,4 +12,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/api/register")
+    private ResponseEntity addAsset(@RequestBody User user) {
+        if(userService.loadUserByUsername(user.getUsername())!=null){
+            return ResponseEntity.badRequest().body(new ErrorResponse("User already exist with the same email address."));
+        }
+        userService.addUser(user);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
