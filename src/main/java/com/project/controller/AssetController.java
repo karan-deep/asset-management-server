@@ -33,4 +33,11 @@ public class AssetController {
         assetService.addOrUpdateAsset(asset);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
+    @PostMapping("/api/assets")
+    private ResponseEntity addAsset(@RequestBody Asset asset) {
+        assetService.addOrUpdateAsset(asset);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
