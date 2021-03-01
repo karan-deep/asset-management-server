@@ -11,6 +11,12 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtUtil{
 
+    private final String secret = "secret";
+
     public String getUsernameFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
+    public Date getExpirationDateFromToken(String token) {
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getExpiration();
+    }
+
