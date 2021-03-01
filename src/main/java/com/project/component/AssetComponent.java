@@ -1,5 +1,8 @@
 package com.project.component;
 
+import com.project.repository.AssetRepository;
+import com.project.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -7,7 +10,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class AssetComponent implements CommandLineRunner {
 
+    @Autowired
+    private AssetRepository assetRepository;
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
     public void run(String...args) throws Exception {
     }
 
 }
+
