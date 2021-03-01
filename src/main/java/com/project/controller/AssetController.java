@@ -12,4 +12,10 @@ public class AssetController {
 
     @Autowired
     private AssetService assetService;
+
+    @GetMapping("/api/assets")
+    private List<Asset> getAllAssets() {
+        return assetService.getAllAssets();
+    }
+
 }
