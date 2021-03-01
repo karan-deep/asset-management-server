@@ -34,6 +34,10 @@ public class AssetController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @DeleteMapping("/api/assets/{id}")
+    private void deleteAsset(@PathVariable("id") int id) {
+        assetService.deleteAsset(id);
+    }
 
     @PostMapping("/api/assets")
     private ResponseEntity addAsset(@RequestBody Asset asset) {
