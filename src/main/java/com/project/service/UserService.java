@@ -20,6 +20,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // Method to find user by their username
     @Override
     public UserDetails loadUserByUsername(String username) {
         com.project.model.User user = userRepository.findByUsername(username);
@@ -29,6 +30,7 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
+    // Method to add/register user after encoding the password
     public void addUser(com.project.model.User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
