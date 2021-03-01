@@ -13,6 +13,8 @@ import java.util.Calendar;
 @NoArgsConstructor
 //marking class as an Entity
 @Entity
+//defining table name as Assets
+@Table(name = "ASSETS")
 public class Asset {
     private int id;
     private int assetTypeId;
