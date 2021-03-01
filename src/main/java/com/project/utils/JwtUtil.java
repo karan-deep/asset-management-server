@@ -25,3 +25,8 @@ public class JwtUtil{
         return expiration.before(new Date());
     }
 
+    public String generateToken(UserDetails user) {
+        long token_validity = 5 * 60 * 60;
+        return Jwts.builder().setClaims(null).setSubject(user.getUsername()).setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + token_validity * 1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
+    }
