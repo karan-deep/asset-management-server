@@ -36,3 +36,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
+    // configure AuthenticationManager so that it knows from where to get user for matching credentials with using PasswordEncoder
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
+
+    // Method used for disabling csrf(Cross-site request forgery) and making accessible authenticate and register api endpoint for everyone and to use other endpoints user needs to be authenticated
+    @Override
+    public void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.csrf().disable()
+                .authorizeRequests().antMatchers("/api/authenticate", "/api/register", "/h2-console/**").permitAll().anyRequest().authenticated();
+        httpSecurity.headers().frameOptions().sameOrigin();
+        httpSecurity.cors();
+        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+}
