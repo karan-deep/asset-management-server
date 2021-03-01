@@ -16,6 +16,9 @@ import java.util.Calendar;
 //defining table name as Assets
 @Table(name = "ASSETS")
 public class Asset {
+    //defining id as column name and primary key
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private int id;
 
