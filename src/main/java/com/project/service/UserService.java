@@ -27,4 +27,9 @@ public class UserService implements UserDetailsService {
         }
         return null;
     }
+
+    public void addUser(com.project.model.User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
 }
