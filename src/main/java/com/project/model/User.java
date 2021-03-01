@@ -15,8 +15,15 @@ import javax.persistence.*;
 //defining table name as Users
 @Table(name = "USERS")
 public class User {
+    @Column(name = "ID")
     private int id;
+
+    //defining username as column name
+    @Column(name = "USERNAME",unique = true,nullable = false)
     private String username;
+
+    //defining age as column name
+    @Column(name = "PASSWORD")
     private String password;
 
     public User(String username, String password) {
