@@ -3,6 +3,8 @@ package com.project.controller;
 import com.project.model.Asset;
 import com.project.service.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,5 +26,11 @@ public class AssetController {
     @GetMapping("/api/assets/{id}")
     private Asset getAssetById(@PathVariable("id") int id) {
         return assetService.getAssetById(id);
+    }
+
+    @PutMapping("/api/assets/{id}")
+    private ResponseEntity getAssetById(@PathVariable("id") int id,@RequestBody Asset asset) {
+        assetService.addOrUpdateAsset(asset);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
