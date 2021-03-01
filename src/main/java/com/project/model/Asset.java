@@ -40,6 +40,7 @@ public class Asset {
 
     //defining price as column name
     @Column(name = "PURCHASEDATE")
+    @Temporal(TemporalType.DATE)
     private Calendar purchaseDate;
 
     public Asset(int assetTypeId, String name, String description, double price, Calendar purchaseDate) {
