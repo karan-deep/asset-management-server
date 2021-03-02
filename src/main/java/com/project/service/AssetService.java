@@ -25,8 +25,10 @@ public class AssetService {
         return assetRepository.findById(id).orElseThrow(() -> new NotFoundException("Asset not found"));
     }
 
-    // Method to save the asset
-    public void addOrUpdateAsset(Asset asset) {
+    // Method to add the asset
+    public void addAsset(Asset asset) {
+        assetRepository.save(asset);
+    }
         assetRepository.save(asset);
     }
 

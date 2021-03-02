@@ -46,7 +46,7 @@ public class AssetController {
     // POST endpoint - to add one asset
     @PostMapping("/api/assets")
     private ResponseEntity addAsset(@RequestBody Asset asset) {
-        assetService.addOrUpdateAsset(asset);
+        assetService.addAsset(asset);
         return new ResponseEntity(HttpStatus.OK);
     }
 }
