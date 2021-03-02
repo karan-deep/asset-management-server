@@ -32,8 +32,8 @@ public class AssetController {
 
     // PUT endpoint - to update one asset details
     @PutMapping("/api/assets/{id}")
-    private ResponseEntity getAssetById(@PathVariable("id") int id,@RequestBody Asset asset) {
-        assetService.addOrUpdateAsset(asset);
+    private ResponseEntity updateAssetById(@PathVariable("id") int id,@RequestBody Asset asset) {
+        assetService.updateAsset(id,asset);
         return new ResponseEntity(HttpStatus.OK);
     }
 

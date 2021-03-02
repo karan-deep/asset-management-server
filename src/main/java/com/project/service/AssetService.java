@@ -29,6 +29,12 @@ public class AssetService {
     public void addAsset(Asset asset) {
         assetRepository.save(asset);
     }
+
+    // Method to update the asset
+    public void updateAsset(int id,Asset asset) {
+        if(!assetRepository.findById(id).isPresent()){
+            throw new NotFoundException("Asset not found");
+        }
         assetRepository.save(asset);
     }
 
