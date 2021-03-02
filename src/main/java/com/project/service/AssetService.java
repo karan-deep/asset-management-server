@@ -32,6 +32,9 @@ public class AssetService {
 
     // Method to delete the asset by their id
     public void deleteAsset(int id) {
+        if(!assetRepository.findById(id).isPresent()){
+            throw new NotFoundException("Asset not found");
+        }
         assetRepository.deleteById(id);
     }
 
